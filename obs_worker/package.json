@@ -1,0 +1,14 @@
+{
+  "name": "obs-worker",
+  "version": "1.0.0",
+  "description": "OBS Automation Worker for Sports-Live-App",
+  "main": "worker.js",
+  "scripts": {
+    "start": "node worker.js"
+  },
+  "dependencies": {
+    "obs-websocket-js": "^5.0.6",
+    "socket.io-client": "^4.7.2",
+    "dotenv": "^16.3.1"
+  }
+}
