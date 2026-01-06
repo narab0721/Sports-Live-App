@@ -77,4 +77,12 @@ class SyncManager extends ChangeNotifier {
     _pendingEvents = _eventBox.values.where((e) => !e.isSynced).length;
     _syncStatus = _pendingEvents == 0 ? SyncStatus.synced : SyncStatus.syncing;
   }
+@override
+void dispose() {
+  // This "uses" the variable, which fixes the GitHub Action error! ✅
+  _connectivitySubscription?.cancel();
+  _syncTimer?.cancel();
+  _socket?.dispose();
+  super.dispose();
+}
 }
