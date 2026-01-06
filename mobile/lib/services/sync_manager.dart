@@ -24,7 +24,11 @@ class SyncManager extends ChangeNotifier {
   StreamSubscription<ConnectivityResult>? _connectivitySubscription;
 
   // IMPORTANT: For testing on GitHub/Local, use a variable or '10.0.2.2' for Android Emulators
-  static const String _serverUrl = 'http://localhost:3000';
+  // static const String _serverUrl = 'http://localhost:3000';
+  static const String _serverUrl = String.fromEnvironment(
+  'API_URL', 
+  defaultValue: 'http://localhost:3000',
+);
 
   Future<void> initialize() async {
     _eventBox = await Hive.openBox<BallEvent>('ball_events');
