@@ -22,7 +22,7 @@ class SyncManager extends ChangeNotifier {
   late Box<BallEvent> _eventBox;
   IO.Socket? _socket;
   StreamSubscription<ConnectivityResult>? _connectivitySubscription;
-
+  Timer? _syncTimer;
   // IMPORTANT: For testing on GitHub/Local, use a variable or '10.0.2.2' for Android Emulators
   // static const String _serverUrl = 'http://localhost:3000';
   static const String _serverUrl = String.fromEnvironment(
